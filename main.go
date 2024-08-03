@@ -1,11 +1,8 @@
 package main
 
 import (
-	"os"
-
 	"github.com/PauloHPMKT/goopportunities/config"
 	"github.com/PauloHPMKT/goopportunities/router"
-	"github.com/joho/godotenv"
 )
 
 var (
@@ -21,7 +18,7 @@ func main() {
 		return
 	}
 
-	port, err := initEnv()
+	port, err := config.InitializeEnv()
 	if err != nil {
 		logger.Errorf("Error initializing env: %v", err)
 		return
@@ -30,12 +27,3 @@ func main() {
 	router.Initialize(port)
 }
 
-func initEnv() (string, error) {
-	err := godotenv.Load(".env")
-	if err != nil {
-		return "", err
-	}
-
-	port := os.Getenv("APP_PORT")
-	return port, nil
-}

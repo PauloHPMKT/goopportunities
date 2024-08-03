@@ -1,4 +1,16 @@
+# Binaries
 tmp
+*.so
+*.o
+*.exe
+*.dll
+*.pyc
+*.dylib
 
+# Test binary
+*.test
+
+db/
+*.out
 .env
 .*.local

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"errors"
+	"fmt"
 
 	"gorm.io/gorm"
 )
@@ -14,7 +14,18 @@ var (
 // Init initializes the database connection
 // Can return an error if any occurs during the initialization
 func Init() error {
-	return errors.New("Fake error")
+	var err error
+
+	db, err = InitializeSqLite()
+	if err != nil {
+		return fmt.Errorf("error initializing sqlite: %v", err)
+	}
+	return nil
+}
+
+// return the database connection locally
+func GetSqLite() *gorm.DB {
+	return db
 }
 
 func GetLogger(p string) *Logger {

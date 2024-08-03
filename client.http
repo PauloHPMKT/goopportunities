@@ -1,1 +1,14 @@
-GET http://localhost:8081/ping
+GET http://localhost:8081/api/v1/opening
+###
+
+POST http://localhost:8081/api/v1/opening
+###
+
+DELETE http://localhost:8081/api/v1/opening
+###
+
+PUT http://localhost:8081/api/v1/opening
+###
+
+GET http://localhost:8081/api/v1/openings
+###

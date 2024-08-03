@@ -8,16 +8,20 @@ import (
 )
 
 func main() {
-	port := initEnv()
-	router.InitializeRouter(port)
+	port, err := initEnv()
+	if err != nil {
+		panic(err)
+	}
+	
+	router.Initialize(port)
 }
 
-func initEnv() string {
+func initEnv() (string, error) {
 	err := godotenv.Load(".env")
 	if err != nil {
-		panic("Error loading .env file")
+		return "", err
 	}
 
 	port := os.Getenv("APP_PORT")
-	return port
+	return port, nil
 }

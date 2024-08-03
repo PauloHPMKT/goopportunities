@@ -73,3 +73,39 @@ Os Imports e Exports dos packages em Go são por convensão de nomenclatura, ou 
 função, constante ou qualquer tipo de entidade na linguagem go ela automaticamente esta sendo exportada do seu 
 package. Ou seja, se voce os cria com letra Maiuscula ele pode ser utilizado em qualquer package da aplicação, se 
 for feito em letra minuscula ele fica retido ao subpackage.
+
+No contexto interno do package ao criar um arquivo auxiliar àquele pacote voce pode criar funçoes privadas, variaveis e instancias privadas que só são utilizadas dentro daquele package.
+Ex: 
+|__ router
+    |___ router.go
+    |___ routes.go -> O que for criado dentro de routes.go estará disponível no package principal
+
+Ex: 
+```sh
+
+## router.go. No exemplo da funçao utilizada printRouter, por ser criada com a primeira letra minuscula
+## ela é um recurso privado e está acessível apenas dentro do package
+func InitializeRouter() {
+  printRouter()
+}
+
+## routes.go
+func printRouter() {}
+```
+
+## Qual a ideia do Pointer?
+Imagina que tudo que temos em codigo esta em algum lugar em nosso sistema operacional... Como uma variavel por exemplo,
+Essa variavel ela tem uma casinha, em um endereço (Linguagens que não são fortemente tipadas geralmente temos um conceito
+chamado pass by value, que é voce pegar a casinha e enviar literalmente de um lado para o outro). A ideia do pointer é que 
+voce envie o CEP para quem está chamando a casinha, ou seja, voce manda um ponteiro para a casa, então se voce precisa
+acessar o conteudo daquela casinha voce acessa o endereço da casa.
+
+Ou seja, ele não é a coisa em si, ele é o endereço (referencia) para a coisa.
+
+O Ganho em performance é que haverá momentos que um recurso passado de um lado para outro, novas instancias serão geradas
+e isso pode comprometer o funcionamento e o comportamento da entidade, pois o ponteiro indica o endereço para uma unica
+entidade.
+
+## Live reload Go
+go install github.com/air-verse/air@latest
+https://aprendagolang.com.br/como-utilizar-live-reload-para-melhorar-sua-produtividade/

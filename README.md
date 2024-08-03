@@ -109,3 +109,13 @@ entidade.
 ## Live reload Go
 go install github.com/air-verse/air@latest
 https://aprendagolang.com.br/como-utilizar-live-reload-para-melhorar-sua-produtividade/
+
+  __    _   ___
+ / /\  | | | |_)
+/_/--\ |_| |_| \_ v1.52.3, built with Go go1.22.4
+
+ __    _   ___
+ / /\  | | | |_)
+/_/--\ |_| |_| \_ v1.52.3, built with Go go1.22.4
+
+.air.toml file created to the current directory with the default settings

@@ -2,6 +2,16 @@ GET http://localhost:8081/api/v1/opening
 ###
 
 POST http://localhost:8081/api/v1/opening
+Content-Type: application/json
+
+{
+    "role": "Senior Software Engineer",
+    "company": "Google",
+    "location": "Mountain View, CA",
+    "remote": true,
+    "link": "https://www.google.com",
+    "salary": 150000
+}
 ###
 
 DELETE http://localhost:8081/api/v1/opening

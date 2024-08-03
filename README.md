@@ -106,6 +106,8 @@ O Ganho em performance é que haverá momentos que um recurso passado de um lado
 e isso pode comprometer o funcionamento e o comportamento da entidade, pois o ponteiro indica o endereço para uma unica
 entidade.
 
+Para acessar o endereço utilizamos * Ponteiro, já para enviar o endereço utilizamos &
+
 ## Live reload Go
 go install github.com/air-verse/air@latest
 https://aprendagolang.com.br/como-utilizar-live-reload-para-melhorar-sua-produtividade/
@@ -119,3 +121,12 @@ https://aprendagolang.com.br/como-utilizar-live-reload-para-melhorar-sua-produti
 /_/--\ |_| |_| \_ v1.52.3, built with Go go1.22.4
 
 .air.toml file created to the current directory with the default settings
+
+## O que é uma struct?
+É equivalente a um objeto ou uma interface que define os tipos dos campos a serem criados dentro de uma estrutura
+
+## Obs:
+--> Quando criamos uma variavel var fora de uma função é uma variavel global, do package
+--> Curiosidades sobre o print 
+    |___ Print("Eu quero printar esse texto") = Faz que o texto printado seja exatamente o de dentro da linha
+    |___ Printf("Eu quero imprimir isso aqui %s", string) = Concatena o print com a string

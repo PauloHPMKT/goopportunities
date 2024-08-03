@@ -3,14 +3,28 @@ package main
 import (
 	"os"
 
+	"github.com/PauloHPMKT/goopportunities/config"
 	"github.com/PauloHPMKT/goopportunities/router"
 	"github.com/joho/godotenv"
 )
 
+var (
+	logger *config.Logger
+)
+
 func main() {
+	logger = config.GetLogger("main")
+
+	err := config.Init()
+	if err != nil {
+		logger.Errorf("Error initializing config: %v", err)
+		return
+	}
+
 	port, err := initEnv()
 	if err != nil {
-		panic(err)
+		logger.Errorf("Error initializing env: %v", err)
+		return
 	}
 	
 	router.Initialize(port)
